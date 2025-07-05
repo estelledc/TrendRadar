@@ -2,8 +2,12 @@ name: Hot News Crawler
 
 on:
   schedule:
-    - cron: '*/50 * * * *'  # 每50分钟运行一次
-  workflow_dispatch:
+    # 每天在固定的 UTC 时间执行（示例为 UTC 时间 12:00）
+    - cron: '0 12 * * *'  # 每24小时运行一次 (UTC时间12点)
+    # 其他常见时间选项（注释说明北京时间）：
+    # - cron: '0 0 * * *'   # 每天UTC 0点执行 (北京时间08:00)
+    # - cron: '0 16 * * *'  # 每天UTC 16点执行 (北京时间24:00)
+  workflow_dispatch:  # 保留手动触发功能
 
 # 添加权限设置
 permissions:
